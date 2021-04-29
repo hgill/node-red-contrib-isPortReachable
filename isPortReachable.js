@@ -12,6 +12,8 @@ module.exports = function(RED) {
 
         function checkStatus(){
             console.log("Checkstatus: "+1);
+            console.log(node.port+" "+node.host);
+            console.log("config: "+JSON.stringify(config))
             return iprLib(node.port, {host: node.host})
             .then((statusNow)=>{
                 console.log("Checkstatus: "+2);
@@ -49,7 +51,7 @@ module.exports = function(RED) {
                     console.log("IntervalMgr: case 2.1"); 
                     node.intervals.forEach(clearInterval);
                     console.log("IntervalMgr: case 2.2"); 
-                    console.log("Node.intervals instanceof Array?: "+node.intervals instanceof Array);
+                    console.log("Node.intervals instanceof Array?: "+(node.intervals instanceof Array));
                     console.log(newStatus?configUpInterval:configDownInterval);
                     console.log("IntervalMgr: case 2.3"); 
                     node.intervals.push(
