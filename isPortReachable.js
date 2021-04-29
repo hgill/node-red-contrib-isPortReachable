@@ -58,6 +58,15 @@ module.exports = function(RED) {
             }
         }
         intervalMgr();//initiate interval -- important to keep this null, else node won't do anything
+
+        node.on('close', function() {
+            // tidy up any state
+            node.intervals.forEach((p,i)=>{
+                clearInterval(p);
+                node.intervals.splice(i,1);
+            });
+        });
+
     }
     RED.nodes.registerType("isPortReachable",isPortReachable);
 }
