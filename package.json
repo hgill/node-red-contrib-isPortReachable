@@ -1,5 +1,5 @@
 {
-  "name": "red-contrib-isportreachable",
+  "name": "node-red-contrib-isportreachable",
   "version": "0.0.1",
   "description": "Wrapper util on sindresorhus/is-port-reachable as a node-red node.",
   "main": "isPortReachable.js",
