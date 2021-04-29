@@ -31,7 +31,8 @@ module.exports = function(RED) {
 
             })
             .catch((err)=>{
-                console.log("Ping app - err"+err);
+                console.log("isPortReachable.js - Catch block" + err);
+                console.log(err.stack);
                 node.status({fill:"red",shape:"ring",text:"err: "+err});
             })
             .finally(()=>{
