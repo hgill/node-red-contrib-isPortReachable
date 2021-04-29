@@ -57,7 +57,7 @@ module.exports = function(RED) {
                     console.log("IntervalMgr: case 2.3"); 
                     node.intervals.push(
                         setInterval(
-                            checkStatus(),
+                            checkStatus,
                             newStatus?configUpInterval:configDownInterval
                     ));        
                     console.log("IntervalMgr: case 2.4");
