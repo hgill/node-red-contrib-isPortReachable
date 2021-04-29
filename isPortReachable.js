@@ -1,5 +1,6 @@
 module.exports = function(RED) {
     const iprLib=require("is-port-reachable");
+    const _=require("lodash");
 
     function isPortReachable(config) {
         RED.nodes.createNode(this,config);
@@ -39,8 +40,9 @@ module.exports = function(RED) {
             switch(true){
                 case newStatus==null: ; // for both, clear intervals and set new one
                 case newStatus!=node.lastStatus: 
-                    node.intervals.forEach(i=>clearInterval);
+                    node.intervals.forEach(clearInterval);
                     console.log("Node.intervals:"+node.intervals);
+                    
                     node.intervals.push(
                         setInterval(
                             checkStatus(),
