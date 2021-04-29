@@ -17,11 +17,11 @@ module.exports = function(RED) {
                 if(statusNow){
                     node.lastStatus=true;
                     node.status({fill:"green",shape:"ring",text:"status: "+statusNow});
-                    node.send(Object.assign({},{host: config.host, port: config.port},{alive:true}));
+                    node.send({payload: Object.assign({},{host: config.host, port: config.port},{alive:true})});
                 }else{
                     node.lastStatus=false;
                     node.status({fill:"red",shape:"ring",text:"status: "+statusNow});
-                    node.send(Object.assign({},{host: config.host, port: config.port},{alive:false}));
+                    node.send({payload: Object.assign({},{host: config.host, port: config.port},{alive:false})});
                 }
             })
             .catch((err)=>{
@@ -38,9 +38,10 @@ module.exports = function(RED) {
             //if node is new, set interval for first time
             //if status has changed, clear intervals and set a new one
             //if status hasn't changed, do nothing
-
+            
             switch(true){
                 case newStatus==null: // for both, clear intervals and set new one
+
                 case newStatus!=node.lastStatus: 
                     node.intervals.forEach((p,i)=>{
                             clearInterval(p);
@@ -49,7 +50,7 @@ module.exports = function(RED) {
                     node.intervals.push(
                         setInterval(
                             checkStatus,
-                            newStatus?configUpInterval:configDownInterval
+                        newStatus!=null?(newStatus?configUpInterval:configDownInterval):configDownInterval
                     ));        
                     break;
                 case newStatus==node.lastStatus: //do nothing
