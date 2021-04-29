@@ -51,8 +51,9 @@ module.exports = function(RED) {
                     break;
                 
             }
+            console.log("node.intervals.length: "+node.intervals.length)
         }
-        intervalMgr();//initiate interval
+        intervalMgr(node.lastStatus);//initiate interval
     }
     RED.nodes.registerType("isPortReachable",isPortReachable);
 }
