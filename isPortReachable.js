@@ -39,7 +39,9 @@ module.exports = function(RED) {
 
             switch(true){
                 case newStatus==null: // for both, clear intervals and set new one
+                    console.log("case1: newStatus null");
                 case newStatus!=node.lastStatus: 
+                    console.log("case2/1: changed status");
                     node.intervals.forEach((p,i)=>{
                             clearInterval(p);
                             node.intervals.splice(i,1);
@@ -51,6 +53,7 @@ module.exports = function(RED) {
                     ));        
                     break;
                 case newStatus==node.lastStatus: //do nothing
+                    console.log("case3: no change in status");
                     break;
                 
             }
