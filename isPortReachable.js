@@ -40,7 +40,10 @@ module.exports = function(RED) {
             switch(true){
                 case newStatus==null: // for both, clear intervals and set new one
                 case newStatus!=node.lastStatus: 
-                    node.intervals.forEach(clearInterval);
+                    node.intervals.forEach((p,i)=>{
+                            clearInterval(p);
+                            node.intervals.splice(i,1);
+                    });
                     node.intervals.push(
                         setInterval(
                             checkStatus,
