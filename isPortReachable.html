@@ -4,14 +4,14 @@
         color:"#C0DEED",
         defaults: {
             name: {value:""},
-            host: {value:"localhost"},
-            port: {value: 80},
+            host: {value:"localhost", required:true},
+            port: {value: 80, required:true},
             upInterval: {value: 20000},
             downInterval: {value: 3000}
         },
         //inputs:1,
         outputs:1,
-        icon: "./tabler-icon-unlink.svg",
+        icon: "tabler-icon-unlink.svg",
         label: function() {
             return this.name || "isPortReachable";
         }

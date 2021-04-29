@@ -6,15 +6,15 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.intervals= [];
-        var configUpInterval=node.upInterval || 20000; // check every 20 seconds when node is up
-        var configDownInterval=node.downInterval || 3000; //check every 3 seconds when node is down
+        var configUpInterval=config.upInterval || 20000; // check every 20 seconds when node is up
+        var configDownInterval=config.downInterval || 3000; //check every 3 seconds when node is down
         node.lastStatus=false;
 
         function checkStatus(){
             console.log("Checkstatus: "+1);
-            console.log(node.port+" "+node.host);
+            console.log(config.port+" "+config.host);
             console.log("config: "+JSON.stringify(config))
-            return iprLib(node.port, {host: node.host})
+            return iprLib(config.port, {host: config.host})
             .then((statusNow)=>{
                 console.log("Checkstatus: "+2);
                 intervalMgr(statusNow); //if status has changed, toggle interval
@@ -23,10 +23,10 @@ module.exports = function(RED) {
                     console.log("Checkstatus: "+4);
                     node.status({fill:"green",shape:"ring",text:"status: "+statusNow});
                     console.log("Checkstatus: "+5);
-                    node.send(Object.assign({},{host: node.host, port: node.port},{alive:true}));
+                    node.send(Object.assign({},{host: config.host, port: config.port},{alive:true}));
                 }else{
                     node.status({fill:"red",shape:"ring",text:"status: "+statusNow});
-                    node.send(Object.assign({},{host: node.host, port: node.port},{alive:false}));
+                    node.send(Object.assign({},{host: config.host, port: config.port},{alive:false}));
                 }
 
             })
