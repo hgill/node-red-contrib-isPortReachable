@@ -41,8 +41,8 @@ module.exports = function(RED) {
                 case newStatus==null: ; // for both, clear intervals and set new one
                 case newStatus!=node.lastStatus: 
                     node.intervals.forEach(clearInterval);
-                    console.log("Node.intervals:"+node.intervals);
-                    
+                    console.log("Node.intervals instanceof Array?: "+node.intervals instanceof Array);
+                    console.log(newStatus?configUpInterval:configDownInterval);
                     node.intervals.push(
                         setInterval(
                             checkStatus(),
