@@ -15,9 +15,11 @@ module.exports = function(RED) {
             .then((statusNow)=>{
                 intervalMgr(statusNow); //if status has changed, toggle interval
                 if(statusNow){
+                    node.lastStatus=true;
                     node.status({fill:"green",shape:"ring",text:"status: "+statusNow});
                     node.send(Object.assign({},{host: config.host, port: config.port},{alive:true}));
                 }else{
+                    node.lastStatus=false;
                     node.status({fill:"red",shape:"ring",text:"status: "+statusNow});
                     node.send(Object.assign({},{host: config.host, port: config.port},{alive:false}));
                 }
