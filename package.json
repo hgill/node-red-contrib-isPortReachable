@@ -1,0 +1,31 @@
+{
+  "name": "red-contrib-isportreachable",
+  "version": "0.0.1",
+  "description": "Wrapper util on sindresorhus/is-port-reachable as a node-red node.",
+  "main": "isPortReachable.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hgill/node-red-contrib-isPortReachable.git"
+  },
+  "keywords": [
+    "node-red",
+    "is-port-reachable",
+    "port"
+  ],
+  "author": "Harpreet Gill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hgill/node-red-contrib-isPortReachable/issues"
+  },
+  "homepage": "https://github.com/hgill/node-red-contrib-isPortReachable#readme",
+  "devDependencies": {
+    "node-red": "^1.3.3",
+    "node-red-node-test-helper": "^0.2.7"
+  },
+  "dependencies": {
+    "is-port-reachable": "^3.0.0"
+  }
+}

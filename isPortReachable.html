@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('is-Port-Reachable',{
+        category: 'function',
+        color: '#0263c5',
+        defaults: {
+            name: {value:""}
+        },
+        //inputs:1,
+        outputs:1,
+        icon: "./tabler-icon-unlink.svg",
+        label: function() {
+            return this.name || "Is-Port-Reachable";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="is-Port-Reachable">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-host"><i class="fa fa-tag"></i> Host</label>
+        <input type="text" id="node-input-host" placeholder="Host">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-port"><i class="fa fa-tag"></i> Port</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-upInterval"><i class="fa fa-tag"></i> Up Interval</label>
+        <input type="text" id="node-input-upInterval" placeholder="interval when host:port is up, default 20000 ms">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-downInterval"><i class="fa fa-tag"></i> Down Interval </label>
+        <input type="text" id="node-input-downInterval" placeholder="interval when host:port is down, default 3000 ms">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="is-Port-Reachable">
+    <p>A simple node that converts the message payloads into all lower-case characters</p>
+</script>
