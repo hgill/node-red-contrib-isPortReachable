@@ -53,5 +53,5 @@ module.exports = function(RED) {
         }
         intervalMgr();//initiate interval
     }
-    RED.nodes.registerType("is-Port-Reachable",isPortReachable);
+    RED.nodes.registerType("isPortReachable",isPortReachable);
 }
