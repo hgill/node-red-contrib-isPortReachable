@@ -10,6 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/hgill/node-red-contrib-isPortReachable.git"
   },
+  "node-red": {
+    "nodes": {
+      "isPortReachable": "isPortReachable.js"
+    }
+  },
   "keywords": [
     "node-red",
     "is-port-reachable",
