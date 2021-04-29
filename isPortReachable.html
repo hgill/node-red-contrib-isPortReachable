@@ -1,9 +1,13 @@
 <script type="text/javascript">
     RED.nodes.registerType('isPortReachable',{
         category: 'function',
-        color: '#0263c5',
+        color:"#C0DEED",
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            host: {value:"localhost"},
+            port: {value: 80},
+            upInterval: {value: 20000},
+            downInterval: {value: 3000}
         },
         //inputs:1,
         outputs:1,
