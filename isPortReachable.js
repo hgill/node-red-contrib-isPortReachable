@@ -53,7 +53,7 @@ module.exports = function(RED) {
             }
             console.log("node.intervals.length: "+node.intervals.length)
         }
-        intervalMgr(node.lastStatus);//initiate interval
+        intervalMgr();//initiate interval -- important to keep this null, else node won't do anything
     }
     RED.nodes.registerType("isPortReachable",isPortReachable);
 }
